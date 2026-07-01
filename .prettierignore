@@ -1,0 +1,6 @@
+dist
+.next
+contracts/target
+pnpm-lock.yaml
+**/next-env.d.ts
+vendor

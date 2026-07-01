@@ -1,0 +1,30 @@
+{
+  "name": "@phantomlayer/mcp",
+  "version": "0.1.0",
+  "description": "MCP server exposing PhantomLayer private execution as agent tools.",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "phantom-mcp": "./dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "@phantomlayer/core": "workspace:*",
+    "@phantomlayer/sdk": "workspace:*",
+    "starknet": "^10.0.2",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "tsup": "^8.5.1",
+    "typescript": "^5.7.2"
+  }
+}

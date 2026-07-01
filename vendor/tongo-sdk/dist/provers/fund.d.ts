@@ -1,0 +1,40 @@
+import { AuxAbiType } from "../abi/abi.types.js";
+import { CipherBalance, GeneralPrefixData, ProjectivePoint } from "../types.js";
+/**
+ * Public inputs of the verifier for the fund operation.
+ * @interface InputsFund
+ * @property {ProjectivePoint} y - The Tongo account to fund
+ * @property {bigint} from - The starknet contract address to take the funds from
+ * @property {bigint} amount - The amount of tongo to fund
+ * @property {bigint} nonce - The nonce of the Tongo account (from)
+ * @property {GeneralPrefixData} prefix_data - General prefix data for the operation
+ */
+export type InputsFund = AuxAbiType<"tongo::structs::operations::fund::InputsFund">;
+export declare const FUND_CAIRO_STRING = 1718972004n;
+/**
+ * Proof of fund operation.
+ * @interface ProofOfFund
+ * @property {ProjectivePoint} Ax - The proof point Ax
+ * @property {bigint} sx - The proof scalar sx
+ */
+export interface ProofOfFund {
+    Ax: ProjectivePoint;
+    sx: bigint;
+}
+export declare function proveFund(private_key: bigint, amount_to_fund: bigint, initial_balance: bigint, initial_cipherbalance: CipherBalance, nonce: bigint, prefix_data: GeneralPrefixData): {
+    inputs: InputsFund;
+    proof: ProofOfFund;
+    newBalance: CipherBalance;
+};
+/**
+ * Verify the fund operation. In this case, users have to only show the knowledge
+ * of the private key.
+ *
+ * Complexity:
+ * - EC_MUL: 2
+ * - EC_ADD: 1
+ *
+ * @param {InputsFund} inputs - The fund operation inputs
+ * @param {ProofOfFund} proof - The proof to verify
+ */
+export declare function verifyFund(inputs: InputsFund, proof: ProofOfFund): void;

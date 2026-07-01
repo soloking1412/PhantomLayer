@@ -1,0 +1,25 @@
+{
+  "name": "@phantomlayer/scripts",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "e2e:devnet": "tsx src/e2e-devnet.ts",
+    "e2e:sepolia": "tsx src/sepolia-e2e.ts",
+    "deploy:sepolia": "tsx src/deploy-sepolia.ts",
+    "confidential:sepolia": "tsx src/confidential-roundtrip-sepolia.ts",
+    "demo:sepolia": "tsx src/demo-sepolia.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@phantomlayer/core": "workspace:*",
+    "@phantomlayer/sdk": "workspace:*",
+    "dotenv": "^17.4.2",
+    "starknet": "^10.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "tsx": "^4.22.4",
+    "typescript": "^5.7.2"
+  }
+}

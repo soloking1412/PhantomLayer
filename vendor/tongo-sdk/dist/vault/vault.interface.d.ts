@@ -1,0 +1,23 @@
+import { PubKey } from "../types.js";
+import { DeployOperation } from "../operations/deploy.js";
+export interface IVault {
+    address: string;
+    tongoClassHash(): Promise<string>;
+    ERC20(): Promise<string>;
+    bitSize(): Promise<number>;
+    rate(): Promise<bigint>;
+    vaultConfig(): Promise<VaultConfig>;
+    deployTongo(params: DeployDetails): Promise<DeployOperation>;
+}
+export interface VaultConfig {
+    vault_address: string;
+    tongo_class_hash: string;
+    ERC20: string;
+    rate: bigint;
+    bit_size: number;
+}
+export interface DeployDetails {
+    owner: string;
+    tag: string;
+    auditor: PubKey | undefined;
+}

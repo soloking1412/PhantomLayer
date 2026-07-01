@@ -1,0 +1,41 @@
+{
+  "name": "@phantomlayer/sdk",
+  "version": "0.1.0",
+  "description": "PhantomSDK — private agent execution on Starknet, drop-in for ERC-8004 agents.",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./tongo": {
+      "types": "./dist/tongo.d.ts",
+      "import": "./dist/tongo.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@avnu/avnu-sdk": "^4.0.1",
+    "@fatsolutions/tongo-sdk": "file:../../vendor/tongo-sdk",
+    "@noble/ciphers": "^2.2.0",
+    "@noble/hashes": "^2.2.0",
+    "@phantomlayer/core": "workspace:*",
+    "starknet": "^10.0.2"
+  },
+  "devDependencies": {
+    "tsup": "^8.5.1",
+    "typescript": "^5.7.2",
+    "vitest": "^4.1.9"
+  }
+}

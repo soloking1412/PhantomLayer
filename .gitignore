@@ -1,0 +1,34 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Builds
+dist/
+.next/
+out/
+target/
+*.tsbuildinfo
+
+# The vendored Tongo SDK build is committed intentionally (upstream fix not yet on npm).
+!vendor/tongo-sdk/dist/
+!vendor/tongo-sdk/dist/**
+
+# Cairo / Scarb
+contracts/target/
+.snfoundry_cache/
+
+# Env & secrets
+.env
+.env.*
+!.env.example
+deployments/*.local.json
+.sncast-accounts.json
+*.sncast-accounts.json
+
+# Tooling
+.turbo/
+coverage/
+*.log
+
+# OS
+.DS_Store
